@@ -20,3 +20,8 @@
       background: #0d0d0d;
     }
   }
+
+  :host {
+    display: block;
+    min-height: 100vh;
+  }
