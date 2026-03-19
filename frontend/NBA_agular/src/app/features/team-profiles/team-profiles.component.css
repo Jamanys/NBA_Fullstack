@@ -1,0 +1,182 @@
+/* frontend/src/app/features/team-profiles/team-profiles.component.css */
+
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ── Header ── */
+  
+  .page__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .back-btn {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    padding: 0.45rem;
+    cursor: pointer;
+    color: #888;
+    display: flex;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  
+  .back-btn svg { width: 18px; height: 18px; }
+  .back-btn:hover { border-color: #7F77DD; color: #7F77DD; }
+  
+  .page__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 0.2rem;
+    justify-content: center;
+    text-align: center;
+
+  }
+  
+  .page__meta {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* ── Contrôles ── */
+  
+  .controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  
+  .control-label {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+
+  }
+  
+  .control-select {
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.9rem;
+    color: inherit;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    cursor: pointer;
+    min-width: 160px;
+    text-align: center;
+
+  }
+  
+  .control-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .control-sep {
+    font-size: 0.85rem;
+    color: #aaa;
+    padding-bottom: 0.55rem;
+  }
+  
+  /* Spinner */
+  .control-loader {
+    padding-bottom: 0.4rem;
+  }
+  
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0,0,0,0.1);
+    border-top-color: #7F77DD;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  
+  @keyframes spin { to { transform: rotate(360deg); } }
+  
+  /* ── Erreur ── */
+  
+  .error {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: #FCEBEB;
+    color: #A32D2D;
+    font-size: 0.875rem;
+  }
+  
+  /* ── Graphique ── */
+  
+  .chart-wrap {
+    width: 75vh;
+    height: 75vh;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  
+  .chart-wrap canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* ── Dark mode ── */
+  
+  @media (prefers-color-scheme: dark) {
+    .control-select {
+      background-color: #1a1a1a;
+      border-color: rgba(255, 255, 255, 0.1);
+      color: #0F6E56;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    }
+  
+    .chart-wrap {
+      background: #111;
+      border-color: rgba(255, 255, 255, 0.07);
+    }
+  
+    .error {
+      background: #501313;
+      color: #F09595;
+    }
+  
+    .spinner {
+      border-color: rgba(255,255,255,0.1);
+      border-top-color: #7F77DD;
+    }
+  }
+  
+  /* ── Responsive ── */
+  
+  @media (max-width: 600px) {
+    .chart-wrap { height: 360px; }
+    .controls { flex-direction: column; align-items: flex-start; }
+    .control-sep { display: none; }
+  }

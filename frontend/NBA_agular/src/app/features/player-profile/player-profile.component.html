@@ -1,0 +1,92 @@
+<!-- src/app/features/player-profile/player-profile.component.html -->
+
+<div class="page">
+
+  <div class="loader" *ngIf="loading"><span class="spinner"></span></div>
+
+  <div class="error-wrap" *ngIf="error && !loading">
+    <p class="error">{{ error }}</p>
+    <button class="btn btn--ghost" (click)="goBack()">← Retour au scouting</button>
+  </div>
+
+  <ng-container *ngIf="!loading && !error && profile">
+
+    <!-- Header -->
+    <header class="profile-header">
+      <button class="back-btn" (click)="goBack()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+      </button>
+      <div class="profile-header__info">
+        <h1 class="profile-header__name">{{ playerMeta.player }}</h1>
+        <div class="profile-header__meta">
+          <span class="badge badge--team">{{ playerMeta.team }}</span>
+          <span class="badge badge--pos">{{ playerMeta.pos }}</span>
+          <span class="badge badge--age">{{ playerMeta.age }} ans</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Légende -->
+    <div class="legend">
+      <span class="legend__item">
+        <span class="legend__dot" style="background:#7F77DD"></span>Top 10%
+      </span>
+      <span class="legend__item">
+        <span class="legend__dot" style="background:#1D9E75"></span>Top 30%
+      </span>
+      <span class="legend__item">
+        <span class="legend__dot" style="background:#888780"></span>Médian
+      </span>
+      <span class="legend__item">
+        <span class="legend__dot" style="background:#D85A30"></span>Bottom 30%
+      </span>
+      <span class="legend__item">
+        <span class="legend__dot" style="background:#A32D2D"></span>Bottom 10%
+      </span>
+      <span class="legend__note">vs top 200 joueurs par minutes jouées</span>
+    </div>
+
+    <!-- Onglets -->
+    <div class="tabs">
+      <button
+        *ngFor="let chart of charts; let i = index"
+        class="tab"
+        [class.tab--active]="activeSection === i"
+        (click)="selectSection(i)">
+        {{ chart.label }}
+      </button>
+    </div>
+
+    <!-- Pizza charts -->
+    <div class="charts-grid">
+      <ng-container *ngFor="let chart of charts; let i = index">
+        <div class="chart-card" *ngIf="activeSection === i">
+          <h3 class="chart-card__title">{{ chart.label }}</h3>
+          <div class="canvas-wrap">
+            <canvas #pizzaCanvas></canvas>
+          </div>
+          <!-- Stats détail sous le chart -->
+          <div class="stats-detail">
+            <div *ngFor="let stat of chart.stats" class="stat-row">
+              <span class="stat-row__label">{{ stat.label }}</span>
+              <span class="stat-row__bar-wrap">
+                <span class="stat-row__bar"
+                      [style.width.%]="stat.percentile"
+                      [style.background]="stat.color">
+                </span>
+              </span>
+              <span class="stat-row__value">{{ stat.value }}</span>
+              <span class="stat-row__pct" [style.color]="stat.color">
+                {{ stat.percentile | number:'1.0-0' }}e
+              </span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+  </ng-container>
+</div>

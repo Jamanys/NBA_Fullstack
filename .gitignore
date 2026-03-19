@@ -1,0 +1,17 @@
+# Database
+*.sqlite
+*.db
+
+# backend
+nba_venv/
+*.pyc
+__pycache__/
+
+# frontend
+frontend/NBA_agular/node_modules/
+frontend/NBA_agular/dist/
+
+# IDEs
+.vscode/
+*.swp
+.DS_Store

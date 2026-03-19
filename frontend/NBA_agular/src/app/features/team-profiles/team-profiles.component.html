@@ -1,0 +1,55 @@
+<!-- frontend/src/app/features/team-profiles/team-profiles.component.html -->
+
+<div class="page">
+    <header class="page__header">
+    
+      <div>
+        <h1 class="page__title">Team profiles</h1>
+        <p class="page__meta" *ngIf="pointCount > 0">moyenne par match</p>
+      </div>
+    </header>
+  
+    <!-- Sélecteurs d'axes -->
+    <div class="controls">
+      <div class="control-group">
+        <label class="control-label" for="axis-x">Axe X</label>
+        <select id="axis-x" class="control-select"
+                [(ngModel)]="selectedX"
+                (ngModelChange)="onAxesChange()"
+                [disabled]="loading">
+          <option *ngFor="let col of numericColumns" [value]="col">{{ col }}</option>
+        </select>
+      </div>
+  
+      <div class="control-sep">vs</div>
+  
+      <div class="control-group">
+        <label class="control-label" for="axis-y">Axe Y</label>
+        <select id="axis-y" class="control-select"
+                [(ngModel)]="selectedY"
+                (ngModelChange)="onAxesChange()"
+                [disabled]="loading">
+          <option *ngFor="let col of numericColumns" [value]="col">{{ col }}</option>
+        </select>
+      </div>
+  
+      <div class="control-loader" *ngIf="loading">
+        <span class="spinner"></span>
+      </div>
+    </div>
+  
+    <!-- Erreur -->
+    <div class="error" *ngIf="error">{{ error }}</div>
+  
+    <!-- Graphique -->
+    <div class="chart-wrap">
+      <canvas #chartCanvas></canvas>
+    </div>
+  
+    <button class="back-btn" (click)="goBack()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.5" stroke-linecap="round">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+    </button>
+  </div>

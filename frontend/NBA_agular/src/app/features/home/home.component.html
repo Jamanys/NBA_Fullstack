@@ -1,0 +1,55 @@
+<!-- frontend/src/app/features/home/home.component.html -->
+
+<div class="home">
+
+    <header class="home__header">
+      <h1 class="home__title">NBA Stats</h1>
+      <p class="home__subtitle">Saison 2024–25</p>
+    </header>
+  
+    <div class="home__cards">
+  
+      <button class="card card--scouting" (click)="navigate('/scouting')">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M21 21l-4.35-4.35" stroke-linecap="round"/>
+            <path d="M11 8v6M8 11h6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <h2 class="card__title_a">Scouting player</h2>
+          <p class="card__desc">Explore et filtre les joueurs selon leurs stats avancées — PER, BPM, VORP, usage et bien plus.</p>
+        </div>
+        <div class="card__arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </div>
+      </button>
+  
+      <button class="card card--team" (click)="navigate('/team')">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="7"  cy="17" r="2"/>
+            <circle cx="12" cy="8"  r="2"/>
+            <circle cx="17" cy="14" r="2"/>
+            <circle cx="5"  cy="11" r="1.2"/>
+            <circle cx="15" cy="5"  r="1.2"/>
+            <circle cx="19" cy="9"  r="1.2"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <h2 class="card__title_b">Team profiles</h2>
+          <p class="card__desc">Visualise la distribution des équipes sur n'importe quelle paire de statistiques sous forme de nuage de points.</p>
+        </div>
+        <div class="card__arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </div>
+      </button>
+  
+    </div>
+  
+  </div>
