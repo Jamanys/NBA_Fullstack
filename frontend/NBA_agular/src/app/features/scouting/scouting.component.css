@@ -1,7 +1,4 @@
 /* src/app/features/scouting/scouting.component.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500&display=swap');
-
 /* ── Variables ── */
 :host {
   --accent:       #F5A623;
@@ -22,7 +19,6 @@
   min-height: 100vh;
   background: var(--surface);
   color: var(--text-1);
-  font-family: 'Barlow', sans-serif;
 }
 
 /* ── Page layout ── */
