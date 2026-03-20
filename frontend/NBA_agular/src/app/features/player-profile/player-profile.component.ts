@@ -225,13 +225,22 @@ export class PlayerProfileComponent implements OnInit, OnDestroy, AfterViewInit 
     const map: Record<string, string> = {
       'PTS': 'PTS', 'AST': 'AST', 'TRB': 'REB', 'STL': 'STL',
       'BLK': 'BLK', 'FG%': 'FG%', 'PER': 'PER', 'TS%': 'TS%',
-      'USG%': 'USG', 'WS': 'WS', 'BPM': 'BPM', 'VORP': 'VORP',
-      '% of FGA by Distance | 2P': '2P%', '% of FGA by Distance | 3P': '3P%',
-      'FG% by Distance | 2P': 'FG2', 'FG% by Distance | 3P': 'FG3',
-      'Corner 3s | 3P%': 'C3%', '% of FG Ast\'d | 3P': 'A3%',
-      'Shooting % | FG%': 'FG%', 'Shooting % | 3P%': '3P%',
-      'Shooting % | 2P%': '2P%', 'Shooting % | FT%': 'FT%',
-      'League-Adjusted | FG%': 'aFG', 'League-Adjusted | 3P%': 'a3P',
+      'USG%': 'USG', 'WS/48': 'WS/48', 'BPM': 'BPM', 'VORP': 'VORP',
+
+
+      "% of FGA by Distance | 0-3": '0-3ft',
+      "% of FGA by Distance | 3-10": '3-10ft',
+      "% of FGA by Distance | 10-16": '10-16ft',
+      "% of FGA by Distance | 16-3P": '16ft-3P',
+      "% of FGA by Distance | 3P": '3P',
+
+
+      'Shooting % | FG%': 'FG%',
+      'Shooting % | 3P%': '3P%',
+      'Shooting % | 2P%': '2P%',
+      'Shooting % | FT%': 'FT%',
+      'League-Adjusted | FG%': 'aFG',
+      'League-Adjusted | eFG+': 'eFG+',
     };
     return map[label] ?? label.split(' | ').pop()?.slice(0, 4) ?? label.slice(0, 4);
   }
