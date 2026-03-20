@@ -149,16 +149,18 @@ export class PlayerProfileComponent implements OnInit, OnDestroy, AfterViewInit 
     const dpr    = window.devicePixelRatio || 1;
     const size   = canvas.clientWidth || 260;
     canvas.width  = size * dpr;
+    canvas.width  += 40;
     canvas.height = size * dpr;
+    canvas.height  += 40;
     ctx.scale(dpr, dpr);
 
     const cx      = size / 2;
     const cy      = size / 2;
-    const outerR  = size * 0.38;
+    const outerR  = size * .34;
     const innerR  = size * 0.14;
     const n       = stats.length;
     const sliceA  = (Math.PI * 2) / n;
-    const gap     = 0.04;                 // gap entre les tranches (radians)
+    const gap     = 0.02;                 // gap entre les tranches (radians)
     const isDark  = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const bgTrack = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
     const textCol = isDark ? '#c2c0b6' : '#3d3d3a';
@@ -189,15 +191,16 @@ export class PlayerProfileComponent implements OnInit, OnDestroy, AfterViewInit 
       ctx.fill();
 
       // Label court (abréviation)
-      const labelR  = outerR + 18;
+      const labelR = outerR + 10; // au lieu de +18
       const midA    = startA + (sliceA - gap) / 2;
-      const lx      = cx + labelR * Math.cos(midA);
+      const offset = 4;
+      const lx = cx + (labelR + (Math.cos(midA) > 0 ? offset : -offset)) * Math.cos(midA);
       const ly      = cy + labelR * Math.sin(midA);
       const short   = this.shortLabel(stat.label);
 
       ctx.fillStyle   = textCol;
-      ctx.font        = `500 ${size * 0.052}px -apple-system, sans-serif`;
-      ctx.textAlign   = 'center';
+      ctx.font = `500 ${size * 0.045}px -apple-system, sans-serif`;
+      ctx.textAlign = Math.cos(midA) > 0 ? 'left' : 'right';
       ctx.textBaseline = 'middle';
       ctx.fillText(short, lx, ly);
 
