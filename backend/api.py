@@ -266,14 +266,23 @@ def get_player_percentiles(slug: str):
 
     # Stats choisies par catégorie
     CATEGORIES = {
-        "players_stats": ["PTS", "AST", "TRB", "STL", "BLK", "FG%"],
-        "advanced_stats": ["PER", "TS%", "USG%", "WS", "BPM", "VORP"],
-        "shooting": ["% of FGA by Distance | 2P", "% of FGA by Distance | 3P",
-                     "FG% by Distance | 2P", "FG% by Distance | 3P",
-                     "Corner 3s | 3P%", "% of FG Ast'd | 3P"],
-        "adjusted_shooting": ["Shooting % | FG%", "Shooting % | 3P%",
-                              "Shooting % | 2P%", "Shooting % | FT%",
-                              "League-Adjusted | FG%", "League-Adjusted | 3P%"],
+        "players_stats": ["PTS", "AST", "ORB", "DRB", "STL", "BLK"],
+        
+        "advanced_stats": ["TS%", "USG%","AST%","TRB%","WS/48", "VORP"],
+
+        "shooting": ["% of FGA by Distance | 0-3",
+        "% of FGA by Distance | 0-3",
+        "% of FGA by Distance | 3-10",
+        "% of FGA by Distance | 10-16",
+        "% of FGA by Distance | 16-3P",
+        "% of FGA by Distance | 3P"],
+
+        "adjusted_shooting": ["League-Adjusted | 2P+",
+                                "League-Adjusted | 3P+", 
+                                "League-Adjusted | FT+",
+                                "League-Adjusted | FG+",
+                                "League-Adjusted | eFG+",
+                                "League-Adjusted | TS+"],
     }
 
     sources = {
