@@ -27,7 +27,7 @@
         <br>
         {{ activeFilterCount }} filtre{{ activeFilterCount > 1 ? 's' : '' }} actif{{ activeFilterCount > 1 ? 's' : '' }}
       </span>
-      <button class="pagination__btn" *ngIf="activeFilterCount > 0" (click)="resetFilters()">
+      <button class="reset__btn" *ngIf="activeFilterCount > 0" (click)="resetFilters()">
         Réinitialiser
       </button>
     </div>

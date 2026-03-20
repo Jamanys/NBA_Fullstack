@@ -386,6 +386,29 @@
   text-align: center;
 }
 
+
+.reset__btn {
+  padding: 0.4rem 1.0rem;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--text-2);
+  transition: all 0.15s;
+}
+
+.reset__btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.reset__btn:disabled { opacity: 0.25; cursor: not-allowed; }
 /* ── Loader ── */
 
 .loader { display: flex; justify-content: center; align-items: center; padding: 6rem; }
